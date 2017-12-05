@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  applicants.api:
+    image: applicants.api     
+    build:
+      context: ./services/applicants.api
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "8081:80"
+    volumes: 
+      - ./applicants.api/bin/pub/:/app
+    container_name: applicants.api
+
+  companies.api:
+    image: companies.api
+    build:
+      context: ./services/companies.api
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "8082:80"
+    volumes: 
+      - ./companies.api/bin/pub/:/app
+    container_name: companies.api     
+
+  jobs.api:
+    image: jobs.api
+    build:
+      context: ./services/jobs.api
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "8083:80"
+    volumes: 
+      - ./jobs.api/bin/pub/:/app
+    container_name: jobs.api
+  
+
+   
+ 
