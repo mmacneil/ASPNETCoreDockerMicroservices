@@ -2,16 +2,36 @@ version: '3'
 
 services:
 
+  webmvc:
+    image: web 
+    build:
+      context: ./web
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "8080:80"
+    volumes: 
+      - ./web/bin/pub/:/app
+    container_name: web
+    depends_on:
+      - applicants.api
+      - companies.api
+      - jobs.api
+
   applicants.api:
-    image: applicants.api     
+    image: applicants.api
+    environment:
+      - ConnectionString=Server=sql.data;User=sa;Password=Pass@word;Database=dotnetgigs.applicants;    
     build:
       context: ./services/applicants.api
       dockerfile: Dockerfile.debug
     ports: 
     - "8081:80"
     volumes: 
-      - ./applicants.api/bin/pub/:/app
+      - ./services/applicants.api/bin/pub/:/app
     container_name: applicants.api
+    depends_on:
+      - sql.data
+      - rabbitmq
 
   companies.api:
     image: companies.api
@@ -21,19 +41,60 @@ services:
     ports: 
     - "8082:80"
     volumes: 
-      - ./companies.api/bin/pub/:/app
-    container_name: companies.api     
+      - ./services/companies.api/bin/pub/:/app
+    container_name: companies.api
+    depends_on:
+      - sql.data
+      - rabbitmq  
 
   jobs.api:
     image: jobs.api
+    environment:
+      - ConnectionString=Server=sql.data;User=sa;Password=Pass@word;Database=dotnetgigs.jobs;    
     build:
       context: ./services/jobs.api
       dockerfile: Dockerfile.debug
     ports: 
     - "8083:80"
     volumes: 
-      - ./jobs.api/bin/pub/:/app
+      - ./services/jobs.api/bin/pub/:/app
     container_name: jobs.api
+    depends_on:
+      - sql.data
+      - rabbitmq
+
+  identity.api:
+    image: identity.api
+    environment:
+      - RedisHost=user.data:6379
+    build:
+      context: ./services/identity.api
+      dockerfile: Dockerfile.debug
+    ports: 
+    - "8084:80"
+    volumes: 
+      - ./services/identity.api/bin/pub/:/app
+    container_name: identity.api
+    depends_on:
+      - user.data       
+
+  sql.data:
+    image: mssql-linux
+    build:
+      context: ./Database
+      dockerfile: Dockerfile
+    ports:
+      - "5433:1433"
+    container_name: mssql-linux
+
+  user.data:
+    image: redis  
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+    container_name: rabbitmq
   
 
    

@@ -1,19 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿
 
-namespace applicants.api.Controllers
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Applicants.Api.Services;
+using Applicants.Api.Models;
+
+
+namespace Applicants.Api.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly IApplicantRepository _applicantRepository;
+
+        public ValuesController(IApplicantRepository applicantRepository){
+            _applicantRepository = applicantRepository;
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<Applicant>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await _applicantRepository.GetAll();
         }
 
         // GET api/values/5

@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @model Web.ViewModels.HomeViewModels.IndexViewModel
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1>New Jobs (@Model.Jobs.Count())</h1>
+        <hr/>
+    </div>
+</div>
+
+    <div class="row">
+        @foreach (var job in Model.Jobs)
+        {
+            <div class="col-md-8 posting">
+                <div class="title-container">
+                    <h3>@job.Title</h3>
+                    <span>@job.Company | @job.Location | posted on @job.PostedDate.ToString("MM/dd/yyyy")</span>
+                </div>
+                <p class="description">@job.Description</p>
+                <a class="btn btn-success" href="@Url.Action("Apply", "Jobs",new{id=job.JobId})" role="button">Apply for this job</a>
+            </div>
+        }
+    </div>
+
+   

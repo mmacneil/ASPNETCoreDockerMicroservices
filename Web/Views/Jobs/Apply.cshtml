@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Apply for a gig";
+    @model Web.ViewModels.JobsViewModels.ApplyViewModel
+}
+
+<div class="row">
+    <div class="col-md-6 posting-apply">
+        <h2>@Model.Job.Title</h2>
+        <p class="post-meta">@Model.Job.Company | @Model.Job.Location | posted on @Model.Job.PostedDate.ToString("MM/dd/yyyy")</p>
+        <p>@Model.Job.Description</p>
+        <hr />
+        <form asp-action="Apply" method="post">
+            <p>You're applying as:</p>
+            <input type="hidden" asp-for="Applicant.Id" />
+            <input type="hidden" asp-for="Job.JobId" />
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" asp-for="Applicant.Email" placeholder="Your email" readonly>
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" asp-for="Applicant.Name" placeholder="Your name" readonly>
+            </div>
+            <button type="submit" class="btn btn-success">Apply for this job</button>
+        </form>
+
+    </div>
+</div>

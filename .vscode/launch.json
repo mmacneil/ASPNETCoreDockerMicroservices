@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "web",
+            "type": "coreclr",
+            "request": "launch",    
+            "preLaunchTask": "publish",   
+            "program": "/app/web.dll",
+            "sourceFileMap": {
+                "/app": "${workspaceRoot}/web"
+            },       
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceRoot}",
+                "pipeArgs": [
+                    "exec -i web"
+                ],
+                "debuggerPath": "/vsdbg/vsdbg",
+                "quoteArgs": false
+            }
+        },
+        {
+            "name": "applicants-api",
+            "type": "coreclr",
+            "request": "launch",    
+            "preLaunchTask": "publish",   
+            "program": "/app/applicants.api.dll",
+            "sourceFileMap": {
+                "/app": "${workspaceRoot}/applicants.api"
+            },       
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceRoot}",
+                "pipeArgs": [
+                    "exec -i applicants.api"
+                ],
+                "debuggerPath": "/vsdbg/vsdbg",
+                "quoteArgs": false
+            }
+        },
+        {
+            "name": "jobs-api",
+            "type": "coreclr",
+            "request": "launch",    
+            "preLaunchTask": "publish",   
+            "program": "/app/jobs.api.dll",
+            "sourceFileMap": {
+                "/app": "${workspaceRoot}/jobs.api"
+            },       
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceRoot}",
+                "pipeArgs": [
+                    "exec -i jobs.api"
+                ],
+                "debuggerPath": "/vsdbg/vsdbg",
+                "quoteArgs": false
+            }
+        },
+        {
+            "name": "identity-api",
+            "type": "coreclr",
+            "request": "launch",    
+            "preLaunchTask": "publish",   
+            "program": "/app/identity.api.dll",
+            "sourceFileMap": {
+                "/app": "${workspaceRoot}/identity.api"
+            },       
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceRoot}",
+                "pipeArgs": [
+                    "exec -i identity.api"
+                ],
+                "debuggerPath": "/vsdbg/vsdbg",
+                "quoteArgs": false
+            }
+        }
+    ]
+}

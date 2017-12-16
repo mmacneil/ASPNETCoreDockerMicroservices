@@ -12539,11 +12539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code\\dotnetgigs\\services\\companies.api\\companies.api.csproj",
-      "projectName": "companies.api",
-      "projectPath": "C:\\code\\dotnetgigs\\services\\companies.api\\companies.api.csproj",
+      "projectUniqueName": "c:\\code\\mystuff\\ASPNETCoreDockerMicroservices\\Services\\Companies.Api\\Companies.Api.csproj",
+      "projectName": "Companies.Api",
+      "projectPath": "c:\\code\\mystuff\\ASPNETCoreDockerMicroservices\\Services\\Companies.Api\\Companies.Api.csproj",
       "packagesPath": "C:\\Users\\mmacneil\\.nuget\\packages\\",
-      "outputPath": "C:\\code\\dotnetgigs\\services\\companies.api\\obj\\",
+      "outputPath": "c:\\code\\mystuff\\ASPNETCoreDockerMicroservices\\Services\\Companies.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
