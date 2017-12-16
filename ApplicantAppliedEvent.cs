@@ -1,6 +1,0 @@
-﻿
-namespace Foundation.Events
-{
-    
-}
-
