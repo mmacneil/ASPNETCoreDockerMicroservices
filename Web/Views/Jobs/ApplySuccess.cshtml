@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "You've successfully applied to: " + Model.Job.Title;
+    @model Web.ViewModels.JobsViewModels.ApplySuccessViewModel
+}
+
+<div class="row">
+    <div class="col-md-8 application-success">
+        <h1>Way to go!</h1>
+        <p>You've successfully applied to <strong>@Model.Job.Company</strong> for the position of <strong>@Model.Job.Title</strong>.</p>
+        <p>You've recently applied for <strong class="recent-application-count">@Model.RecentApplicantCount</strong> job(s).</p>
+        <a href="@Url.Action("Index", "Home")">Cool, let's go home.</a>
+    </div>
+</div>

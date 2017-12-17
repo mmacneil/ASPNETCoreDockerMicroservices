@@ -9,5 +9,6 @@ namespace Identity.Api.Services
         Task<User> UpdateUserAsync(User user);
         Task<User> GetUserAsync(string userId);
         Task<long> UpdateUserApplicationCountAsync(string userId);
+        Task<long> GetUserApplicationCountAsync(string userId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Threading.Tasks;
 using Http;
 using Newtonsoft.Json;
@@ -29,6 +30,12 @@ namespace Web.Services
         {
             var dataString = await _apiClient.GetStringAsync(_apiConfig.IdentityApiUrl+ BasePath + "/" + userId);
             return JsonConvert.DeserializeObject<User>(dataString);
+        }
+
+        public async Task<long> GetUserApplicationCountAsync(string userId)
+        {
+            var dataString = await _apiClient.GetStringAsync(_apiConfig.IdentityApiUrl + BasePath + "/applicationcount/" + userId);
+            return Convert.ToInt64(dataString);
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿
 
 using System;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Web.Services;
@@ -34,7 +36,6 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Apply(JobApplicationViewModel model)
         {
-            await Task.Delay(1000);
             await _jobService.AddApplicant(new JobApplicant
             {
                 Email = model.Applicant.Email,
@@ -43,7 +44,17 @@ namespace Web.Controllers
                 JobId = model.Job.JobId
             });
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ApplySuccess",new{jobId=model.Job.JobId,applicantId= model.Applicant.Id });
+        }
+
+        // GET jobs/apply/success/5
+        [HttpGet("jobs/apply/success/{id}")]
+        public async Task<IActionResult> ApplySuccess(int jobId,string applicantId)
+        {
+            await Task.Delay(500); // give a sec for redis to eventually update
+            var job = await _jobService.GetJob(jobId);
+            var applicationCount = await _identityService.GetUserApplicationCountAsync(applicantId);
+            return View(new ApplySuccessViewModel(job,applicationCount));
         }
     }
 }

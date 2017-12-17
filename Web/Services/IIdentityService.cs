@@ -8,5 +8,6 @@ namespace Web.Services
     {
         Task UpdateUserAsync(User user);
         Task<User> GetUserAsync(string userId);
+        Task<long> GetUserApplicationCountAsync(string userId);
     }
 }

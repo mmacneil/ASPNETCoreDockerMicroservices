@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Threading.Tasks;
 using Identity.Api.Models;
 using Newtonsoft.Json;
@@ -31,6 +32,12 @@ namespace Identity.Api.Services
         {
             var data = await _database.StringGetAsync(userId);
             return data.IsNullOrEmpty ? null : JsonConvert.DeserializeObject<User>(data);
+        }
+
+        public async Task<long> GetUserApplicationCountAsync(string userId)
+        {
+            var data = await _database.StringGetAsync($"{userId}-appcnt");
+            return data.IsNullOrEmpty ? 0 : Convert.ToInt64(data);
         }
     }
 }

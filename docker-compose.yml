@@ -14,7 +14,7 @@ services:
     container_name: web
     depends_on:
       - applicants.api
-      - companies.api
+      - identity.api
       - jobs.api
 
   applicants.api:
@@ -32,20 +32,6 @@ services:
     depends_on:
       - sql.data
       - rabbitmq
-
-  companies.api:
-    image: companies.api
-    build:
-      context: ./services/companies.api
-      dockerfile: Dockerfile.debug
-    ports: 
-    - "8082:80"
-    volumes: 
-      - ./services/companies.api/bin/pub/:/app
-    container_name: companies.api
-    depends_on:
-      - sql.data
-      - rabbitmq  
 
   jobs.api:
     image: jobs.api

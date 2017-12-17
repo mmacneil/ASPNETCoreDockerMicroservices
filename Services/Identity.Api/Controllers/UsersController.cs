@@ -25,6 +25,14 @@ namespace Identity.Api.Controllers
             return Ok(user);
         }
 
+        // GET api/users/applicationcount/5
+        [HttpGet("applicationcount/{id}")]
+        public async Task<IActionResult> GetUserApplicantCount(string id)
+        {
+            var count = await _identityRespository.GetUserApplicationCountAsync(id);
+            return Ok(count);
+        }
+
 
         // POST api/users
         [HttpPost]
