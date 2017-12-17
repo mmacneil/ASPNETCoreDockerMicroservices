@@ -53,6 +53,7 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 **/Properties/launchSettings.json
+project.assets.json
 
 # StyleCop
 StyleCopReport.xml
@@ -186,6 +187,9 @@ PublishScripts/
 # NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
+*.nuget.g.targets
+*.nuget.cache
+*.nuget.g.props
 
 # Microsoft Azure Build Output
 csx/
