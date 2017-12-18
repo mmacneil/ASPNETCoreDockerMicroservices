@@ -18,6 +18,7 @@ It should be fairly cross-platform friendly to get up and running but was develo
 # Setup
 
 1. Download/clone repo.
-2. In the root folder build the solution using the dotnetcore CLI command `> dotnet build`.
-3. From the root folder again (where _docker-compose.yml_ resides) use the Docker CLI to build and start the containers for the solution: `PS> docker-compose up -d`.  This step will take a few minutes or more as all the base images must be downloaded.  When it completes you can check that all **7** containers for the solution have been built and started successfully by running `PS> docker ps`.
+2. From the root folder (where _docker-compose.yml_ resides) use the Docker CLI to build and start the containers for the solution: `PS> docker-compose up -d`.  This step will take a few minutes or more as all the base images must be downloaded.  When it completes you can check that all **7** containers for the solution have been built and started successfully by running `PS> docker ps`.
 ![Alt](https://fullstackmark.com/img/posts/12/aspnetcore-microservice-and-service-docker-containers.png "7 containers are deployed in this solution")
+2. In the root folder build the solution using the dotnetcore CLI command `> dotnet build`.
+
