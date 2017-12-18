@@ -13,7 +13,7 @@ It should be fairly cross-platform friendly to get up and running but was develo
     - Docker extension
  - SQL Server Management Studio 17.4
 - .NET Core SDK v2.0.0
-- Docker Community Edition 17.09.1-ce-win42
+- Docker Community Edition 17.09.1-ce-win42 using Linux containers
 
 # Setup
 
