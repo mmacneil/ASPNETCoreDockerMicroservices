@@ -28,9 +28,9 @@ It should be fairly cross-platform friendly to get up and running but was develo
 
 # Known Issues
 
-I have seen intermittently that for some reason the seed sql server databases do not get created when the `mssql-linux` image and container are created with `docker-compose`.  This is why I mention the verification step in the setup to make sure the dbs are created.  If they're not, I simply remove the `mssql-linux` image and container and recreate them using `docker-compose` and it always seems to work on second run.
+I have seen intermittently that for some reason the seed sql server databases do not always get created when the `mssql-linux` image and container are created with `docker-compose`.  This is why I mention the verification step in the setup to make sure the dbs are created.  If they're not, I simply remove the `mssql-linux` image and container and recreate them using `docker-compose` and it always seems to work on second run.
 
-I have also noticed, on first run of newly created containers that when starting services that use Rabbit a connection exception will be thrown when starting the project in the debugger.  Start it again and things seem to work fine from then on.
+I have also noticed, on first run of newly created containers that when starting services that use Rabbit a connection exception will be thrown when starting the project in the debugger for the first time.  Start it again and things seem to work fine from then on.
 
 
 
