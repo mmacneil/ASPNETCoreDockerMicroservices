@@ -42,7 +42,10 @@
 
 .posting-apply > p.post-meta {color: #999;font-size:.85em}
 
-.application-success > h1 { color: #3d9668;text-transform: uppercase;font-weight:bold}
+.application-success { float: none;margin: 0 auto;padding-top: 2.25em}
+.application-success > h1 { color: #3d9668;font-weight: bold;font-size:3.65em}
+.application-success > .summary-description { font-size: 1.5em;padding: 2em 0 1.25em 0}
+.application-success > .summary-recent-count {font-size: 1.5em;padding:.65em 0} 
 .application-success .recent-application-count {color: #3d9668;font-size: 1.5em}
 
 .no-margin {margin:0}                
