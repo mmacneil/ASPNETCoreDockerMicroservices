@@ -18,4 +18,4 @@ It should be fairly cross-platform friendly to get up and running but was develo
 # Setup
 
 1. Download/clone repo.
-2. In the root folder
+2. In the root folder build the solution using the dotnetcore CLI `> dotnet build`
