@@ -14,10 +14,13 @@ It should be fairly cross-platform friendly to get up and running but was develo
  - SQL Server Management Studio 17.4
 - .NET Core SDK v2.0.0
 - Docker Community Edition 17.09.1-ce-win42
+- PowerShell
 
 # Setup
 
 1. Download/clone repo.
 2. In the root folder build the solution using the dotnetcore CLI command `> dotnet build`.
 3. From the root folder again (where _docker-compose.yml_ resides) use the Docker CLI to build and start the containers for the solution: `>docker-compose up -d`.  This step will take a few minutes or more as all the base images must be downloaded.
+
+When it completes you can check that all *7* containers for the solution have been built and started successfully by running `> docker ps`.
 ![Alt](https://fullstackmark.com/img/posts/12/aspnetcore-microservice-and-service-docker-containers.png "7 containers are deployed in this solution")
