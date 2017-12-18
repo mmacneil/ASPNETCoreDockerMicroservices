@@ -19,4 +19,4 @@ It should be fairly cross-platform friendly to get up and running but was develo
 
 1. Download/clone repo.
 2. In the root folder build the solution using the dotnetcore CLI command `> dotnet build`.
-3. From the root folder again (where `docker-compose.yml` resides) use the Docker CLI to build and start the containers for the solution: `docker-compose up -d`.
+3. From the root folder again (where _docker-compose.yml_ resides) use the Docker CLI to build and start the containers for the solution: `>docker-compose up -d`.
