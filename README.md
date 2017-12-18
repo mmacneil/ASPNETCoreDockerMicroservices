@@ -24,6 +24,12 @@ It should be fairly cross-platform friendly to get up and running but was develo
 
 3. At this point, you can run and debug the solution from Visual Studio Code.  Simply open the root folder in VSCode and start up each of the projects in the debugger.  Unfortunately, they need to be started individually (if you know a way around this please let me know :)  The order they're started does not matter. ![Alt](https://fullstackmark.com/img/posts/12/aspnetcore-services-running-in-visual-studio-code-debugger.png "containerized services running in visual studio code debugger")
 
+4. With all services running in the debugger you can hit the app in your browser at **localhost:8080** and set breakpoints anywhere to debug directly.
+
+# Known Issues
+
+I have seen intermittently that for some reason the seed sql server databases do not get created when the `mssql-linux` image and container are created with `docker-compose`.  This is why I mention the verification step in the setup to make sure the dbs are created.  If they're not, I simply remove the 'mssql-linux` image and container and recreate them using 'docker-compose` and it always seems to work on second run.
+
 
 
 
