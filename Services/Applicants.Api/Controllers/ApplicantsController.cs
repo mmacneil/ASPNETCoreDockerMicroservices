@@ -10,11 +10,11 @@ using Applicants.Api.Models;
 namespace Applicants.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ApplicantsController : Controller
     {
         private readonly IApplicantRepository _applicantRepository;
 
-        public ValuesController(IApplicantRepository applicantRepository){
+        public ApplicantsController(IApplicantRepository applicantRepository){
             _applicantRepository = applicantRepository;
         }
 
