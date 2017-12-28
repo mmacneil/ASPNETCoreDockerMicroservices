@@ -80,5 +80,16 @@
                 "quoteArgs": false
             }
         }
+    ],
+    "compounds": [
+        {
+            "name": "All Projects",
+            "configurations": [
+                "web",
+                "applicants-api",
+                "jobs-api",
+                "identity-api"
+            ]
+        }
     ]
 }
